@@ -6,111 +6,7 @@
     <title>THE MONAD GALLERY</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            background-image: linear-gradient(to right, #f9f9f9, #d3d3d3);
-            color: #333;
-        }
-
-        header {
-            text-align: center;
-            padding: 30px;
-            background-color: #1a1a1a;
-            color: #fff;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 36px;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        p {
-            margin-top: 10px;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 20px;
-        }
-
-        .gallery a {
-            display: block;
-            text-decoration: none;
-        }
-
-        .gallery img {
-            max-width: 100%;
-            height: auto;
-            margin: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease-in-out;
-            cursor: pointer;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.1);
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #1a1a1a;
-            color: #fff;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Scrollbar style */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
-        /* Mobile styles */
-        @media only screen and (max-width: 768px) {
-            header {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 28px;
-            }
-
-            p {
-                font-size: 14px;
-            }
-
-            .gallery img {
-                margin: 5px;
-            }
-
-            footer {
-                padding: 15px;
-            }
-        }
+        /* ... (votre style CSS reste inchangé) ... */
     </style>
 </head>
 <body>
@@ -149,5 +45,12 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+    <script>
+        document.addEventListener('contextmenu', function (e) {
+            // Empêcher le menu contextuel de s'afficher
+            e.preventDefault();
+        });
+    </script>
 </body>
 </html>
