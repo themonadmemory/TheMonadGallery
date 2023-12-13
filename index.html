@@ -35,11 +35,16 @@
             line-height: 1.5;
         }
 
+        .gallery-container {
+            background-color: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+        }
+
         .gallery {
             display: flex;
-            flex-direction: row;
             justify-content: space-around;
-            padding: 20px;
+            flex-wrap: wrap;
         }
 
         .gallery a {
@@ -81,7 +86,7 @@
             max-width: 80%;
             max-height: 80%;
             border-radius: 8px;
-            box-shadow: 0 0 0 rgba(255, 255, 255, 0.7); /* Modifier la valeur ici */
+            box-shadow: 0 0 0 rgba(255, 255, 255, 0.7);
         }
 
         .gallery-overlay.active {
@@ -152,24 +157,32 @@
         </div>
     </header>
 
-    <div class="container">
-        <div class="gallery">
-            <!-- Replace the following image URLs with your own -->
-            <a href="https://i.ibb.co/QbsXyvn/IMG-6256.jpg" data-lightbox="gallery" data-title="Work 1">
-                <img src="https://i.ibb.co/QbsXyvn/IMG-6256.jpg" alt="Work 1">
-            </a>
-            <a href="https://i.ibb.co/gg4zp4G/IMG-6262.jpg" data-lightbox="gallery" data-title="Work 2">
-                <img src="https://i.ibb.co/gg4zp4G/IMG-6262.jpg" alt="Work 2">
-            </a>
-            <a href="https://i.ibb.co/WxHmDYj/IMG-6036.jpg" data-lightbox="gallery" data-title="Work 3">
-                <img src="https://i.ibb.co/WxHmDYj/IMG-6036.jpg" alt="Work 3">
-                
-            <a href=" https://ibb.co/t8Pps5z" data-lightbox="gallery" data-title="Work 3">
-                <img src=" https://ibb.co/t8Pps5z" alt="Work 3">
+    <div class="gallery-container">
+        <div class="container">
+            <div class="gallery">
+                <!-- Replace the following image URLs with your own -->
+                <a href="https://i.ibb.co/QbsXyvn/IMG-6256.jpg" data-lightbox="gallery" data-title="Work 1">
+                    <img src="https://i.ibb.co/QbsXyvn/IMG-6256.jpg" alt="Work 1">
+                </a>
+                <a href="https://i.ibb.co/gg4zp4G/IMG-6262.jpg" data-lightbox="gallery" data-title="Work 2">
+                    <img src="https://i.ibb.co/gg4zp4G/IMG-6262.jpg" alt="Work 2">
+                </a>
+                <a href="https://i.ibb.co/WxHmDYj/IMG-6036.jpg" data-lightbox="gallery" data-title="Work 3">
+                    <img src="https://i.ibb.co/WxHmDYj/IMG-6036.jpg" alt="Work 3">
+                </a>
+            </div>
+        </div>
+    </div>
 
-                https://ibb.co/t8Pps5z
-            </a>
-            <!-- Add more images as needed -->
+    <div class="gallery-container">
+        <div class="container">
+            <div class="gallery">
+                <!-- Replace the following image URLs with your own -->
+                <a href="https://i.ibb.co/xyz/IMG-xyz.jpg" data-lightbox="gallery" data-title="Work 4">
+                    <img src="https://i.ibb.co/xyz/IMG-xyz.jpg" alt="Work 4">
+                </a>
+                <!-- Add more images as needed -->
+            </div>
         </div>
     </div>
 
