@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE MONAD GALLERY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -39,6 +40,11 @@
             flex-wrap: wrap;
             justify-content: space-around;
             padding: 20px;
+        }
+
+        .gallery a {
+            display: block;
+            text-decoration: none;
         }
 
         .gallery img {
@@ -120,9 +126,9 @@
     <div class="container">
         <div class="gallery">
             <!-- Replace the following image URLs with your own -->
-            <img src="https://i.ibb.co/QbsXyvn/IMG-6256.jpg" alt="Work 1">
-            <img src="https://i.ibb.co/gg4zp4G/IMG-6262.jpg" alt="Work 2">
-            <img src="https://i.ibb.co/WxHmDYj/IMG-6036.jpg" alt="Work 3">
+            <a href="https://i.ibb.co/QbsXyvn/IMG-6256.jpg" data-lightbox="gallery" data-title="Work 1"><img src="https://i.ibb.co/QbsXyvn/IMG-6256.jpg" alt="Work 1"></a>
+            <a href="https://i.ibb.co/gg4zp4G/IMG-6262.jpg" data-lightbox="gallery" data-title="Work 2"><img src="https://i.ibb.co/gg4zp4G/IMG-6262.jpg" alt="Work 2"></a>
+            <a href="https://i.ibb.co/WxHmDYj/IMG-6036.jpg" data-lightbox="gallery" data-title="Work 3"><img src="https://i.ibb.co/WxHmDYj/IMG-6036.jpg" alt="Work 3"></a>
             <!-- Add more images as needed -->
         </div>
     </div>
@@ -142,5 +148,6 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 </body>
 </html>
