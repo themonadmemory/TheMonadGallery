@@ -37,7 +37,7 @@
 
         .gallery {
             display: flex;
-            flex-direction: row; /* Modifier pour aligner les images sur une même ligne */
+            flex-direction: row;
             justify-content: space-around;
             padding: 20px;
         }
@@ -48,7 +48,6 @@
             position: relative;
             overflow: hidden;
             border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease-in-out;
             margin: 10px;
         }
@@ -82,7 +81,7 @@
             max-width: 80%;
             max-height: 80%;
             border-radius: 8px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+            box-shadow: 0 0 0 rgba(255, 255, 255, 0.7); /* Modifier la valeur ici */
         }
 
         .gallery-overlay.active {
