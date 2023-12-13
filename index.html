@@ -6,7 +6,141 @@
     <title>THE MONAD GALLERY</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <style>
-        /* ... (votre style CSS reste inchangé) ... */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            background-image: linear-gradient(to right, #f9f9f9, #d3d3d3);
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .gallery a {
+            display: block;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            margin: 10px;
+        }
+
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery a:hover {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .gallery-overlay img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+        }
+
+        .gallery-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Scrollbar style */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Mobile styles */
+        @media only screen and (max-width: 768px) {
+            header {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .gallery img {
+                margin: 5px;
+            }
+
+            footer {
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -22,9 +156,15 @@
     <div class="container">
         <div class="gallery">
             <!-- Replace the following image URLs with your own -->
-            <a href="https://i.ibb.co/QbsXyvn/IMG-6256.jpg" data-lightbox="gallery" data-title="Work 1"><img src="https://i.ibb.co/QbsXyvn/IMG-6256.jpg" alt="Work 1"></a>
-            <a href="https://i.ibb.co/gg4zp4G/IMG-6262.jpg" data-lightbox="gallery" data-title="Work 2"><img src="https://i.ibb.co/gg4zp4G/IMG-6262.jpg" alt="Work 2"></a>
-            <a href="https://i.ibb.co/WxHmDYj/IMG-6036.jpg" data-lightbox="gallery" data-title="Work 3"><img src="https://i.ibb.co/WxHmDYj/IMG-6036.jpg" alt="Work 3"></a>
+            <a href="https://i.ibb.co/QbsXyvn/IMG-6256.jpg" data-lightbox="gallery" data-title="Work 1">
+                <img src="https://i.ibb.co/QbsXyvn/IMG-6256.jpg" alt="Work 1">
+            </a>
+            <a href="https://i.ibb.co/gg4zp4G/IMG-6262.jpg" data-lightbox="gallery" data-title="Work 2">
+                <img src="https://i.ibb.co/gg4zp4G/IMG-6262.jpg" alt="Work 2">
+            </a>
+            <a href="https://i.ibb.co/WxHmDYj/IMG-6036.jpg" data-lightbox="gallery" data-title="Work 3">
+                <img src="https://i.ibb.co/WxHmDYj/IMG-6036.jpg" alt="Work 3">
+            </a>
             <!-- Add more images as needed -->
         </div>
     </div>
@@ -44,6 +184,10 @@
         </div>
     </footer>
 
+    <div class="gallery-overlay" onclick="closeOverlay()">
+        <img id="overlayImage">
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
     <script>
@@ -51,6 +195,22 @@
             // Empêcher le menu contextuel de s'afficher
             e.preventDefault();
         });
+
+        document.querySelectorAll('.gallery a').forEach(function (el) {
+            el.addEventListener('click', function (e) {
+                e.preventDefault();
+                openOverlay(el.href);
+            });
+        });
+
+        function openOverlay(imageUrl) {
+            document.getElementById('overlayImage').src = imageUrl;
+            document.querySelector('.gallery-overlay').classList.add('active');
+        }
+
+        function closeOverlay() {
+            document.querySelector('.gallery-overlay').classList.remove('active');
+        }
     </script>
 </body>
 </html>
