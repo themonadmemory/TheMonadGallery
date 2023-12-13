@@ -42,9 +42,10 @@
         }
 
         .gallery {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-content: center;
         }
 
         .gallery a {
@@ -54,7 +55,6 @@
             overflow: hidden;
             border-radius: 8px;
             transition: transform 0.3s ease-in-out;
-            margin: 10px;
         }
 
         .gallery img {
@@ -170,14 +170,6 @@
                 <a href="https://i.ibb.co/WxHmDYj/IMG-6036.jpg" data-lightbox="gallery" data-title="Work 3">
                     <img src="https://i.ibb.co/Y7fTGCq/IMG-6036-thumbnail.jpg" alt="Work 3">
                 </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="gallery-container">
-        <div class="container">
-            <div class="gallery">
-                <!-- Replace the following image URLs with your own -->
                 <a href="https://i.ibb.co/xyz/IMG-xyz.jpg" data-lightbox="gallery" data-title="Work 4">
                     <img src="https://i.ibb.co/xyz/IMG-xyz-thumbnail.jpg" alt="Work 4">
                 </a>
