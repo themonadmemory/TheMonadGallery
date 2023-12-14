@@ -18,6 +18,7 @@ body {
 
 .gallery img {
     max-width: 100%;
-    height: auto;
+    max-height: 80vh; /* Hauteur maximale pour éviter qu'elles ne soient trop grandes */
     object-fit: contain; /* Pour s'assurer que l'image est entièrement visible */
+    margin: 10px; /* Marge autour de chaque image */
 }
