@@ -18,13 +18,10 @@
             align-items: center;
             flex-direction: column;
             height: 100vh;
-            background-color: black;
-            transition: background-color 0.5s ease-in-out;
             color: rgba(255, 255, 255, 0.9);
         }
 
         #gif-background {
-            position: fixed;
             width: 100%;
             height: 100vh;
             object-fit: cover;
@@ -58,6 +55,7 @@
         #image-container {
             display: none;
             position: relative;
+            background-color: transparent;
         }
 
         #image-container::before {
@@ -143,6 +141,10 @@
                 object-fit: cover;
                 width: 100vw;
             }
+
+            #image-container {
+                padding: 20px;
+            }
         }
     </style>
 
@@ -178,6 +180,9 @@
             // Fonction pour mettre à jour le temps international
             function updateInternationalTime() {
                 const now = new Date();
+                const randomOffset = Math.floor(Math.random() * (365 * 24 * 60 * 60 * 1000)); // Offset aléatoire jusqu'à 1 an
+                const randomTime = new Date(now.getTime() + randomOffset);
+
                 const options = {
                     weekday: 'long',
                     year: 'numeric',
@@ -188,9 +193,12 @@
                     second: '2-digit',
                     timeZone: 'UTC'
                 };
-                const formattedTime = now.toLocaleDateString('en-US', options);
+                const formattedTime = randomTime.toLocaleDateString('en-US', options);
                 $('#time').text(formattedTime);
             }
+
+            // Mettre à jour le temps au chargement de la page
+            updateInternationalTime();
 
             // Mettre à jour le temps toutes les secondes
             setInterval(() => {
