@@ -52,6 +52,7 @@
             transition: background-color 0.3s ease-in-out;
             display: block;
             margin: 0 auto;
+            pointer-events: auto; /* Activer les événements pointer pour le lien */
         }
 
         #enter-link:hover {
@@ -139,9 +140,9 @@
             });
         });
 
-        // Fonction pour afficher les images après avoir cliqué sur le lien
+        // Fonction pour rediriger directement vers le carrousel
         function showImages() {
-            // Aller directement à la première image du carrousel
+            // Rediriger vers le carrousel (index 0)
             $('.carousel').slick('slickGoTo', 0);
             // Afficher le carrousel
             $('.carousel').fadeIn();
