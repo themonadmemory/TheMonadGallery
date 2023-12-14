@@ -32,19 +32,18 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out;
+            position: relative;
+            z-index: 1;
         }
 
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Style pour "protéger" les images contre l'enregistrement */
         .gallery img:after {
             content: 'Image non enregistrable';
             display: block;
-            position: relative;
-            top: -300px;
-            height: 300px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             color: #fff;
             background: rgba(0, 0, 0, 0.8);
             border-radius: 8px;
@@ -55,10 +54,15 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease-in-out;
+            z-index: 2;
         }
 
         .gallery img:hover:after {
             opacity: 1;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
         }
 
         footer {
@@ -72,22 +76,17 @@
         }
     </style>
 
-    <!-- ... (autres balises head) ... -->
     <script>
-        // Désactive le clic droit sur les images
         document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
         });
 
-        // Désactive la touche contextuelle de l'application (souvent utilisée pour ouvrir le menu contextuel avec le clic droit)
         document.addEventListener('keydown', function (e) {
             if (e.keyCode == 93 || e.keyCode == 123) {
                 e.preventDefault();
             }
         });
     </script>
-
-    
 </head>
 
 <body>
