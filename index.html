@@ -35,11 +35,39 @@
             z-index: 1; /* Assure que le contenu reste au-dessus du gif */
         }
 
+        .slick-prev,
+        .slick-next {
+            font-size: 24px;
+            line-height: 1;
+            color: white;
+        }
+
         /* Le reste du CSS reste inchangé */
     </style>
 
     <script>
-        // Le reste du script reste inchangé
+        $(document).ready(function () {
+            // Configurer Slick pour le carrousel
+            $('.carousel').slick({
+                autoplay: false,
+                arrows: true,
+                dots: false,
+                infinite: true,
+                speed: 800,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                prevArrow: '<button type="button" class="slick-prev">&#8592;</button>',
+                nextArrow: '<button type="button" class="slick-next">&#8594;</button>'
+            });
+
+            // Cacher les images initialement
+            $('.carousel').hide();
+
+            // Afficher les images après 8 secondes
+            setTimeout(function () {
+                $('.carousel').fadeIn();
+            }, 8000);
+        });
     </script>
 </head>
 
@@ -68,10 +96,6 @@
         <br>
         International Time: <span id="international-time"></span>
     </footer>
-
-    <script>
-        // Le reste du script reste inchangé
-    </script>
 </body>
 
 </html>
