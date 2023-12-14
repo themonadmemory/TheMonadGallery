@@ -22,32 +22,36 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-color: black; /* Fond noir par défaut */
+            transition: background-color 0.5s ease-in-out; /* Transition du fond avec effet de fondu */
         }
 
         #gif-background {
             position: fixed;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Assure que le gif reste en arrière-plan */
-            object-fit: cover; /* Ajuste la taille du gif pour couvrir toute la page */
+            z-index: -1;
+            object-fit: cover;
+            animation: glitch 3s infinite alternate; /* Animation glitch */
         }
 
         .gallery-container {
             text-align: center;
-            position: relative; /* Ajout pour permettre le positionnement absolu du contenu */
-            z-index: 1; /* Assure que le contenu reste au-dessus du gif */
-            color: rgba(255, 255, 255, 0.5); /* Couleur du texte semi-transparent */
+            position: relative;
+            z-index: 1;
+            color: rgba(255, 255, 255, 0.5);
+            animation: glitch-text 2s infinite alternate; /* Animation glitch pour le texte */
         }
 
         #enter-link {
             font-size: 24px;
-            color: rgba(255, 255, 255, 0.7); /* Couleur du texte semi-transparent */
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             border: 2px solid white;
             padding: 10px 20px;
             transition: background-color 0.3s ease-in-out;
-            display: block; /* Ajuste le lien pour prendre toute la largeur */
-            margin: 0 auto; /* Centre le lien horizontalement */
+            display: block;
+            margin: 0 auto;
         }
 
         #enter-link:hover {
@@ -63,7 +67,58 @@
         }
 
         .carousel {
-            display: none; /* Masquer les images initialement */
+            display: none;
+            animation: glitch-carousel 3s infinite alternate; /* Animation glitch pour le carrousel */
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(2px, -2px);
+            }
+
+            50% {
+                transform: translate(-2px, 2px);
+            }
+
+            75% {
+                transform: translate(2px, 2px);
+            }
+
+            100% {
+                transform: translate(-2px, -2px);
+            }
+        }
+
+        @keyframes glitch-text {
+            0%, 25%, 50%, 75%, 100% {
+                transform: none;
+            }
+
+            10% {
+                transform: skew(0.5deg, 0.5deg);
+            }
+
+            20% {
+                transform: skew(-0.5deg, -0.5deg);
+            }
+        }
+
+        @keyframes glitch-carousel {
+            0%, 25%, 50%, 75%, 100% {
+                transform: none;
+            }
+
+            10% {
+                transform: rotate(-0.5deg);
+            }
+
+            20% {
+                transform: rotate(0.5deg);
+            }
         }
     </style>
 
