@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Monad Gallery</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/lokesh/lightbox2/2.11.3/dist/css/lightbox.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/lokesh/lightbox2/2.11.3/dist/js/lightbox.min.js"></script>
 
     <style>
         body {
@@ -38,31 +40,6 @@
             z-index: 1;
         }
 
-        .carousel img:after {
-            content: 'Image non enregistrable';
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            color: #fff;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 8px;
-            padding: 10px;
-            font-size: 18px;
-            line-height: 1.5;
-            text-align: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease-in-out;
-            z-index: 2;
-        }
-
-        .carousel img:hover:after {
-            opacity: 1;
-        }
-
         .carousel img:hover {
             transform: scale(1.05);
         }
@@ -81,8 +58,7 @@
             color: #fff;
         }
 
-        #international-time,
-        #visit-counter {
+        #international-time {
             font-size: 20px;
         }
     </style>
@@ -115,18 +91,9 @@
             document.getElementById('international-time').innerText = formattedTime;
         }
 
-        // Fonction pour mettre à jour le compteur de visites
-        function updateVisitCounter() {
-            let visitCount = localStorage.getItem('visitCount') || 0;
-            visitCount++;
-            localStorage.setItem('visitCount', visitCount);
-            document.getElementById('visit-counter').innerText = visitCount;
-        }
-
-        // Mettre à jour le temps et le compteur de visites toutes les secondes
+        // Mettre à jour le temps toutes les secondes
         setInterval(() => {
             updateInternationalTime();
-            updateVisitCounter();
         }, 1000);
     </script>
 </head>
@@ -135,9 +102,15 @@
     <div class="gallery-container">
         <h1>The Monad Gallery</h1>
         <div class="carousel">
-            <img src="https://i.ibb.co/5rRfdwM/IMG-6038.jpg" alt="Image 1">
-            <img src="https://i.ibb.co/WfRphSS/IMG-6262.jpg" alt="Image 2">
-            <img src="https://i.ibb.co/jZ7MYDh/IMG-6256.jpg" alt="Image 3">
+            <a href="https://i.ibb.co/5rRfdwM/IMG-6038.jpg" data-lightbox="gallery" data-title="Image 1">
+                <img src="https://i.ibb.co/5rRfdwM/IMG-6038.jpg" alt="Image 1">
+            </a>
+            <a href="https://i.ibb.co/WfRphSS/IMG-6262.jpg" data-lightbox="gallery" data-title="Image 2">
+                <img src="https://i.ibb.co/WfRphSS/IMG-6262.jpg" alt="Image 2">
+            </a>
+            <a href="https://i.ibb.co/jZ7MYDh/IMG-6256.jpg" data-lightbox="gallery" data-title="Image 3">
+                <img src="https://i.ibb.co/jZ7MYDh/IMG-6256.jpg" alt="Image 3">
+            </a>
             <!-- Ajoutez autant d'images que nécessaire -->
         </div>
     </div>
@@ -145,29 +118,12 @@
     <footer>
         &copy; The Monad Gallery, 2023 | <a href="https://twitter.com/Crash_113589311" target="_blank">Twitter/X</a>
         <br>
-        International Time: <span id="international-time"></span> | Visits: <span id="visit-counter">0</span>
+        International Time: <span id="international-time"></span>
     </footer>
 
     <script>
-        $(document).ready(function(){
-            $('.carousel').slick({
-                centerMode: true,
-                centerPadding: '0',
-                slidesToShow: 3,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            arrows: false,
-                            centerMode: true,
-                            centerPadding: '0',
-                            slidesToShow: 1
-                        }
-                    }
-                ]
-            });
+        $(document).ready(function () {
+            $('.carousel a').lightbox();
         });
     </script>
 </body>
