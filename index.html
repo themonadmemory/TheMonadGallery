@@ -86,6 +86,9 @@
 
         // Fonction pour afficher les images après avoir cliqué sur le lien
         function showImages() {
+            // Aller directement à la première image du carrousel
+            $('.carousel').slick('slickGoTo', 0);
+            // Afficher le carrousel
             $('.carousel').fadeIn();
             // Supprimer le lien après avoir montré les images (si nécessaire)
             document.getElementById('enter-link').style.display = 'none';
