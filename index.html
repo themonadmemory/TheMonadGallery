@@ -33,6 +33,7 @@
             padding: 20px;
             position: relative; /* Ajout pour permettre le positionnement absolu du contenu */
             z-index: 1; /* Assure que le contenu reste au-dessus du gif */
+            color: white; /* Ajout de couleur pour le texte dramatique */
         }
 
         .slick-prev,
@@ -42,10 +43,26 @@
             color: white;
         }
 
+        /* Style pour le lien dramatique */
+        #enter-link {
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            border: 2px solid white;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #enter-link:hover {
+            background-color: white;
+            color: black;
+        }
+
         /* Le reste du CSS reste inchangé */
     </style>
 
     <script>
+        // Attendre que le document soit prêt
         $(document).ready(function () {
             // Configurer Slick pour le carrousel
             $('.carousel').slick({
@@ -62,21 +79,30 @@
 
             // Cacher les images initialement
             $('.carousel').hide();
-
-            // Afficher les images après 8 secondes
-            setTimeout(function () {
-                $('.carousel').fadeIn();
-            }, 8000);
         });
+
+        // Fonction pour afficher les images après avoir cliqué sur le lien
+        function showImages() {
+            $('.carousel').fadeIn();
+            // Supprimer le lien après avoir montré les images (si nécessaire)
+            document.getElementById('enter-link').style.display = 'none';
+        }
     </script>
 </head>
 
 <body>
+    <!-- Gif en arrière-plan -->
     <iframe id="gif-background" src="https://giphy.com/embed/1fkEiiEz2iJwvuR0Hy" frameborder="0"
         allowfullscreen></iframe>
 
+    <!-- Contenu principal -->
     <div class="gallery-container">
         <h1>The Monad Gallery</h1>
+        
+        <!-- Lien dramatique pour accéder aux images -->
+        <a href="javascript:void(0);" id="enter-link" onclick="showImages()">ENTER HERE</a>
+
+        <!-- Carrousel d'images -->
         <div class="carousel">
             <a href="https://i.ibb.co/5rRfdwM/IMG-6038.jpg" data-lightbox="gallery" data-title="Image 1">
                 <img src="https://i.ibb.co/5rRfdwM/IMG-6038.jpg" alt="Image 1">
@@ -91,6 +117,7 @@
         </div>
     </div>
 
+    <!-- Pied de page -->
     <footer>
         &copy; The Monad Gallery, 2023 | <a href="https://twitter.com/Crash_113589311" target="_blank">Twitter/X</a>
         <br>
