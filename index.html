@@ -115,7 +115,8 @@
 
         // Fonction pour mettre à jour le compteur de visites
         function updateVisitCounter() {
-            let visitCount = localStorage.getItem('visitCount') || ;
+          let visitCount = localStorage.getItem('visitCount') || 0;
+
             visitCount++;
             localStorage.setItem('visitCount', visitCount);
             document.getElementById('visit-counter').innerText = visitCount;
