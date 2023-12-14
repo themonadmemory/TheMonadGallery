@@ -89,7 +89,11 @@
             position: absolute;
             font-size: 20px;
             opacity: 0;
-            animation: fadeInOut 6s infinite alternate, moveAround 15s infinite linear;
+            animation: fadeInOut 6s infinite alternate, moveAroundSlow 20s infinite linear, changeColor 6s infinite alternate;
+        }
+
+        .hidden {
+            display: none;
         }
 
         @keyframes fadeInOut {
@@ -102,7 +106,7 @@
             }
         }
 
-        @keyframes moveAround {
+        @keyframes moveAroundSlow {
             0% {
                 top: 10%;
                 left: 10%;
@@ -126,6 +130,16 @@
             100% {
                 top: 10%;
                 left: 10%;
+            }
+        }
+
+        @keyframes changeColor {
+            from {
+                color: rgba(255, 255, 255, 0.9);
+            }
+
+            to {
+                color: rgba(255, 255, 255, 0.1);
             }
         }
 
@@ -157,14 +171,14 @@
 
             // Fonction pour afficher l'image
             function showImage() {
-                $('#gif-background, #enter-link, #twitter-link, #time').hide();
+                $('#enter-link, #twitter-link, #time').hide();
                 $('#image-container').show();
             }
 
             // Fonction pour masquer l'image
             function hideImage() {
                 $('#image-container').hide();
-                $('#gif-background, #enter-link, #twitter-link, #time').show();
+                $('#enter-link, #twitter-link, #time').show();
             }
 
             // Fonction pour mettre à jour le temps international
@@ -193,7 +207,16 @@
             $('#enter-link').click(function () {
                 changeRandomImageSource();
                 showImage();
-                setTimeout(hideImage, 8000); // Disparition de l'image après 8 secondes
+
+                // Ajout d'une classe pour cacher le GIF pendant la visualisation de l'image
+                $('#gif-background').addClass('hidden');
+
+                setTimeout(function () {
+                    hideImage();
+
+                    // Suppression de la classe pour réafficher le GIF après la visualisation de l'image
+                    $('#gif-background').removeClass('hidden');
+                }, 8000); // Disparition de l'image après 8 secondes
             });
         });
     </script>
@@ -209,7 +232,7 @@
             <img id="current-image" src="" alt="Current Image">
         </div>
         <a id="twitter-link" href="https://twitter.com/Crash_113589311" target="_blank">Twitter/X</a>
-        <div id="remember-message">Remember</div>
+        <div id="remember-message">.</div>
     </div>
 
     <footer>
