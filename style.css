@@ -1,26 +1,34 @@
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f8f8;
+/* ... (restez inchangé) ... */
+
+.info-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
 }
 
-.gallery-container {
-    overflow: hidden;
+.info-item {
+    text-align: center;
+}
+
+/* Style pour le footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.footer-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 100vh; /* Utilise la hauteur totale de la fenêtre */
 }
 
-.gallery {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+footer a {
+    color: white;
+    text-decoration: none;
 }
 
-.gallery img {
-    max-width: 100%;
-    max-height: 80vh; /* Hauteur maximale pour éviter qu'elles ne soient trop grandes */
-    object-fit: contain; /* Pour s'assurer que l'image est entièrement visible */
-    margin: 10px; /* Marge autour de chaque image */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère autour des images */
+footer a:hover {
+    text-decoration: underline;
 }
