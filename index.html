@@ -17,8 +17,11 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
             overflow: hidden; /* Pour masquer les barres de défilement */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         #gif-background {
@@ -26,14 +29,30 @@
             width: 100%;
             height: 100%;
             z-index: -1; /* Assure que le gif reste en arrière-plan */
+            object-fit: cover; /* Ajuste la taille du gif pour couvrir toute la page */
         }
 
         .gallery-container {
             text-align: center;
-            padding: 20px;
             position: relative; /* Ajout pour permettre le positionnement absolu du contenu */
             z-index: 1; /* Assure que le contenu reste au-dessus du gif */
-            color: white; /* Ajout de couleur pour le texte dramatique */
+            color: rgba(255, 255, 255, 0.5); /* Couleur du texte semi-transparent */
+        }
+
+        #enter-link {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.7); /* Couleur du texte semi-transparent */
+            text-decoration: none;
+            border: 2px solid white;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease-in-out;
+            display: block; /* Ajuste le lien pour prendre toute la largeur */
+            margin: 0 auto; /* Centre le lien horizontalement */
+        }
+
+        #enter-link:hover {
+            background-color: white;
+            color: black;
         }
 
         .slick-prev,
@@ -43,22 +62,9 @@
             color: white;
         }
 
-        /* Style pour le lien dramatique */
-        #enter-link {
-            font-size: 24px;
-            color: white;
-            text-decoration: none;
-            border: 2px solid white;
-            padding: 10px 20px;
-            transition: background-color 0.3s ease-in-out;
+        .carousel {
+            display: none; /* Masquer les images initialement */
         }
-
-        #enter-link:hover {
-            background-color: white;
-            color: black;
-        }
-
-        /* Le reste du CSS reste inchangé */
     </style>
 
     <script>
@@ -76,9 +82,6 @@
                 prevArrow: '<button type="button" class="slick-prev">&#8592;</button>',
                 nextArrow: '<button type="button" class="slick-next">&#8594;</button>'
             });
-
-            // Cacher les images initialement
-            $('.carousel').hide();
         });
 
         // Fonction pour afficher les images après avoir cliqué sur le lien
@@ -97,8 +100,6 @@
 
     <!-- Contenu principal -->
     <div class="gallery-container">
-        <h1>The Monad Gallery</h1>
-        
         <!-- Lien dramatique pour accéder aux images -->
         <a href="javascript:void(0);" id="enter-link" onclick="showImages()">ENTER HERE</a>
 
