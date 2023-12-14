@@ -65,8 +65,17 @@
         }
 
         #time {
-            font-size: 36px;
+            font-size: 24px; /* Réduire la taille de l'affichage de l'horloge UTC */
             margin-top: 20px;
+        }
+
+        #remember-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 36px;
+            display: none;
         }
 
         @media only screen and (max-width: 768px) {
@@ -121,7 +130,21 @@
                     timeZone: 'UTC'
                 };
                 const formattedTime = now.toLocaleDateString('en-US', options);
-                $('#time').text('TIME: ' + formattedTime);
+                $('#time').text(formattedTime);
+            }
+
+            // Fonction pour faire clignoter le message "Remember"
+            function blinkRememberMessage() {
+                const $rememberMessage = $('#remember-message');
+                const colors = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF'];
+                let colorIndex = 0;
+
+                setInterval(function () {
+                    const currentColor = colors[colorIndex];
+                    $rememberMessage.css('color', currentColor);
+
+                    colorIndex = (colorIndex + 1) % colors.length;
+                }, 150);
             }
 
             // Mettre à jour le temps toutes les secondes
@@ -134,6 +157,9 @@
                 changeRandomImageSource();
                 showImage();
                 setTimeout(hideImage, 8000); // Disparition de l'image après 8 secondes
+
+                // Activer le clignotement après 15 secondes
+                setTimeout(blinkRememberMessage, 15000);
             });
         });
     </script>
@@ -143,12 +169,13 @@
     <iframe id="gif-background" src="https://giphy.com/embed/JxGOOJiKAfv68" frameborder="0" allowfullscreen></iframe>
 
     <div class="gallery-container">
-        <div id="time">TIME: [UTC Time]</div>
+        <div id="time"></div>
         <div id="enter-link">ENTER HERE</div>
         <div id="image-container">
             <img id="current-image" src="" alt="Current Image">
         </div>
         <a id="twitter-link" href="https://twitter.com/Crash_113589311" target="_blank">Twitter/X</a>
+        <div id="remember-message">Remember</div>
     </div>
 
     <footer>
