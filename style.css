@@ -5,6 +5,10 @@ body {
 
 .gallery-container {
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Utilise la hauteur totale de la fenêtre */
 }
 
 .gallery {
@@ -13,6 +17,7 @@ body {
 }
 
 .gallery img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
+    object-fit: contain; /* Pour s'assurer que l'image est entièrement visible */
 }
