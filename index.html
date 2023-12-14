@@ -21,9 +21,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             background-color: black;
             transition: background-color 0.5s ease-in-out;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         #gif-background {
@@ -38,7 +40,6 @@
             text-align: center;
             position: relative;
             z-index: 1;
-            color: rgba(255, 255, 255, 0.9);
         }
 
         #enter-link {
@@ -50,6 +51,7 @@
             transition: background-color 0.3s ease-in-out;
             cursor: pointer;
             display: inline-block;
+            margin-bottom: 20px;
         }
 
         #enter-link:hover {
@@ -70,6 +72,35 @@
 
         .carousel {
             /* Ajoutez le style que vous souhaitez pour le carrousel ici */
+        }
+
+        #twitter-link {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            border: 2px solid white;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease-in-out;
+            cursor: pointer;
+            display: inline-block;
+            opacity: 1;
+            animation: disappear 5s infinite alternate;
+        }
+
+        #twitter-link:hover {
+            background-color: white;
+            color: black;
+        }
+
+        @keyframes disappear {
+            0%, 100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.2;
+                transform: translateX(-5px);
+            }
         }
     </style>
 
@@ -113,10 +144,11 @@
             </a>
             <!-- Ajoutez autant d'images que nécessaire -->
         </div>
+        <a id="twitter-link" href="https://twitter.com/Crash_113589311" target="_blank">Twitter/X</a>
     </div>
 
     <footer>
-        &copy; The Monad Gallery, 2023 | <a href="https://twitter.com/Crash_113589311" target="_blank">Twitter/X</a>
+        &copy; The Monad Gallery, 2023
     </footer>
 </body>
 
