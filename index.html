@@ -37,19 +37,20 @@
             z-index: 1;
         }
 
-        #enter-link {
+        #enter-link,
+        #twitter-link {
             font-size: 24px;
-            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             border: 2px solid white;
             padding: 10px 20px;
-            transition: background-color 0.3s ease-in-out;
+            transition: opacity 0.5s ease-in-out;
             cursor: pointer;
             display: inline-block;
             margin-bottom: 20px;
         }
 
-        #enter-link:hover {
+        #enter-link:hover,
+        #twitter-link:hover {
             background-color: white;
             color: black;
         }
@@ -63,32 +64,10 @@
             max-height: 80vh;
         }
 
-        #twitter-link {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            border: 2px solid white;
-            padding: 10px 20px;
-            transition: background-color 0.3s ease-in-out;
-            cursor: pointer;
-            display: inline-block;
-            opacity: 1;
-            animation: disappear 5s infinite alternate;
-        }
-
-        #twitter-link:hover {
-            background-color: white;
-            color: black;
-        }
-
-        @keyframes disappear {
-            0%, 100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.2;
-                transform: translateX(-5px);
+        @media only screen and (max-width: 768px) {
+            #gif-background {
+                height: 100vh;
+                object-fit: cover;
             }
         }
     </style>
@@ -104,12 +83,14 @@
             function showImage() {
                 $('#gif-background').hide();
                 $('#image-container').show();
+                $('#enter-link, #twitter-link').animate({ opacity: 0 }, 500);
             }
 
             // Fonction pour masquer l'image
             function hideImage() {
                 $('#image-container').hide();
                 $('#gif-background').show();
+                $('#enter-link, #twitter-link').animate({ opacity: 1 }, 500);
             }
 
             // Au clic sur ENTER HERE, changer l'image et afficher
@@ -117,6 +98,25 @@
                 changeImageSource('https://i.ibb.co/5rRfdwM/IMG-6038.jpg'); // Changez l'URL de l'image ici
                 showImage();
                 setTimeout(hideImage, 8000); // Disparition de l'image après 8 secondes
+            });
+
+            // Au clic sur les liens d'images, changer l'image et afficher
+            $('#image-link-1').click(function () {
+                changeImageSource('https://i.ibb.co/5rRfdwM/IMG-6038.jpg');
+                showImage();
+                setTimeout(hideImage, 8000);
+            });
+
+            $('#image-link-2').click(function () {
+                changeImageSource('https://i.ibb.co/WfRphSS/IMG-6262.jpg');
+                showImage();
+                setTimeout(hideImage, 8000);
+            });
+
+            $('#image-link-3').click(function () {
+                changeImageSource('https://i.ibb.co/jZ7MYDh/IMG-6256.jpg');
+                showImage();
+                setTimeout(hideImage, 8000);
             });
         });
     </script>
@@ -131,6 +131,11 @@
             <img id="current-image" src="" alt="Current Image">
         </div>
         <a id="twitter-link" href="https://twitter.com/Crash_113589311" target="_blank">Twitter/X</a>
+        <div>
+            <a id="image-link-1" href="#">Image 1</a>
+            <a id="image-link-2" href="#">Image 2</a>
+            <a id="image-link-3" href="#">Image 3</a>
+        </div>
     </div>
 
     <footer>
