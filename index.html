@@ -1,68 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Monad Gallery</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background-color: #f0f0f0;
         }
 
-        header {
-            background-color: #333;
-            color: white;
+        .gallery-container {
             text-align: center;
-            padding: 1rem;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
             padding: 20px;
         }
 
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
         .gallery img {
-            width: 100%;
+            width: 300px;
             height: auto;
-            border-radius: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Style pour "protéger" les images contre l'enregistrement */
+        .gallery img:after {
+            content: 'Image non enregistrable';
+            display: block;
+            position: relative;
+            top: -300px;
+            height: 300px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .gallery img:hover:after {
+            opacity: 1;
         }
 
         footer {
             background-color: #333;
-            color: white;
+            color: #fff;
             text-align: center;
-            padding: 1rem;
+            padding: 10px;
             position: fixed;
             bottom: 0;
             width: 100%;
         }
     </style>
 </head>
+
 <body>
-
-    <header>
+    <div class="gallery-container">
         <h1>The Monad Gallery</h1>
-    </header>
-
-    <div class="gallery">
-        <img src="https://i.ibb.co/5rRfdwM/IMG-6038.jpg" alt="Artwork 1">
-        <img src="https://i.ibb.co/WfRphSS/IMG-6262.jpg" alt="Artwork 2">
-        <img src="https://i.ibb.co/jZ7MYDh/IMG-6256.jpg" alt="Artwork 3">
-        <!-- Ajoutez autant d'images que nécessaire -->
+        <div class="gallery">
+            <img src="https://i.ibb.co/5rRfdwM/IMG-6038.jpg" alt="Image 1">
+            <img src="https://i.ibb.co/WfRphSS/IMG-6262.jpg" alt="Image 2">
+            <img src="https://i.ibb.co/jZ7MYDh/IMG-6256.jpg" alt="Image 3">
+            <!-- Ajoutez autant d'images que nécessaire -->
+        </div>
     </div>
 
-    <!-- Footer avec le lien Twitter et le copyright -->
     <footer>
-        <p>&copy; The Monad Gallery, 2023</p>
-        <a href="https://twitter.com/Crash_113589311" target="_blank">Suivez-nous sur Twitter</a>
+        &copy; The Monad Gallery, 2023 | <a href="https://twitter.com/your_twitter_account" target="_blank">Twitter/X</a>
     </footer>
-
-    <script src="script.js"></script>
 </body>
+
 </html>
