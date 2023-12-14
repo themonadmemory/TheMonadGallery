@@ -75,49 +75,38 @@
 
     <script>
         $(document).ready(function () {
-            // Fonction pour changer l'image source
-            function changeImageSource(imageSrc) {
-                $('#current-image').attr('src', imageSrc);
+            // Fonction pour changer l'image source de manière aléatoire
+            function changeRandomImageSource() {
+                const images = [
+                    'https://i.ibb.co/5rRfdwM/IMG-6038.jpg',
+                    'https://i.ibb.co/WfRphSS/IMG-6262.jpg',
+                    'https://i.ibb.co/jZ7MYDh/IMG-6256.jpg'
+                    // Ajoutez d'autres liens d'images ici
+                ];
+
+                const randomIndex = Math.floor(Math.random() * images.length);
+                const randomImageSrc = images[randomIndex];
+
+                $('#current-image').attr('src', randomImageSrc);
             }
 
             // Fonction pour afficher l'image
             function showImage() {
-                $('#gif-background').hide();
+                $('#gif-background, #enter-link, #twitter-link').hide();
                 $('#image-container').show();
-                $('#enter-link, #twitter-link').animate({ opacity: 0 }, 500);
             }
 
             // Fonction pour masquer l'image
             function hideImage() {
                 $('#image-container').hide();
-                $('#gif-background').show();
-                $('#enter-link, #twitter-link').animate({ opacity: 1 }, 500);
+                $('#gif-background, #enter-link, #twitter-link').show();
             }
 
-            // Au clic sur ENTER HERE, changer l'image et afficher
+            // Au clic sur ENTER HERE, changer l'image de manière aléatoire et afficher
             $('#enter-link').click(function () {
-                changeImageSource('https://i.ibb.co/5rRfdwM/IMG-6038.jpg'); // Changez l'URL de l'image ici
+                changeRandomImageSource();
                 showImage();
                 setTimeout(hideImage, 8000); // Disparition de l'image après 8 secondes
-            });
-
-            // Au clic sur les liens d'images, changer l'image et afficher
-            $('#image-link-1').click(function () {
-                changeImageSource('https://i.ibb.co/5rRfdwM/IMG-6038.jpg');
-                showImage();
-                setTimeout(hideImage, 8000);
-            });
-
-            $('#image-link-2').click(function () {
-                changeImageSource('https://i.ibb.co/WfRphSS/IMG-6262.jpg');
-                showImage();
-                setTimeout(hideImage, 8000);
-            });
-
-            $('#image-link-3').click(function () {
-                changeImageSource('https://i.ibb.co/jZ7MYDh/IMG-6256.jpg');
-                showImage();
-                setTimeout(hideImage, 8000);
             });
         });
     </script>
@@ -132,11 +121,6 @@
             <img id="current-image" src="" alt="Current Image">
         </div>
         <a id="twitter-link" href="https://twitter.com/Crash_113589311" target="_blank">Twitter/X</a>
-        <div>
-            <a id="image-link-1" href="#">Image 1</a>
-            <a id="image-link-2" href="#">Image 2</a>
-            <a id="image-link-3" href="#">Image 3</a>
-        </div>
     </div>
 
     <footer>
