@@ -177,7 +177,14 @@
 
             // Fonction pour mettre à jour le temps international
             function updateInternationalTime() {
-                const now = new Date();
+                const randomYear = Math.floor(Math.random() * (2023 - 2000 + 1)) + 2000; // Entre 2000 et 2023
+                const randomMonth = Math.floor(Math.random() * 12) + 1; // Entre 1 et 12
+                const randomDay = Math.floor(Math.random() * 28) + 1; // Entre 1 et 28 (ignorant les années bissextiles pour simplifier)
+                const randomHour = Math.floor(Math.random() * 24); // Entre 0 et 23
+                const randomMinute = Math.floor(Math.random() * 60); // Entre 0 et 59
+                const randomSecond = Math.floor(Math.random() * 60); // Entre 0 et 59
+
+                const randomDate = new Date(randomYear, randomMonth - 1, randomDay, randomHour, randomMinute, randomSecond);
                 const options = {
                     weekday: 'long',
                     year: 'numeric',
@@ -188,14 +195,12 @@
                     second: '2-digit',
                     timeZone: 'UTC'
                 };
-                const formattedTime = now.toLocaleDateString('en-US', options);
+                const formattedTime = randomDate.toLocaleDateString('en-US', options);
                 $('#time').text(formattedTime);
             }
 
-            // Mettre à jour le temps toutes les secondes
-            setInterval(() => {
-                updateInternationalTime();
-            }, 1000);
+            // Mettre à jour le temps au chargement initial de la page
+            updateInternationalTime();
 
             // Au clic sur ENTER HERE, changer l'image de manière aléatoire et afficher
             $('#enter-link').click(function () {
@@ -229,7 +234,7 @@
         <div class="moving-dot dot1">.</div>
         <div class="moving-dot dot2">.</div>
         <div class="moving-dot dot3">.</div>
-        <div class="moving-dot dot4">.</div>
+        div class="moving-dot dot4">.</div>
         <div class="moving-dot dot5">.</div>
         <div class="moving-dot dot6">.</div>
         <div class="moving-dot dot7">.</div>
