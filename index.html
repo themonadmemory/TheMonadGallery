@@ -2,15 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Monad Gallery</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            grid-gap: 20px;
+            gap: 20px;
+            padding: 20px;
         }
 
         .gallery img {
@@ -18,30 +32,35 @@
             height: auto;
             border-radius: 10px;
         }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
-    <div class="gallery-container">
-        <div class="gallery">
-            <img src="https://i.ibb.co/5rRfdwM/IMG-6038.jpg" alt="Image 1">
-            <img src="https://i.ibb.co/WfRphSS/IMG-6262.jpg" alt="Image 2">
-            <img src="https://i.ibb.co/jZ7MYDh/IMG-6256.jpg" alt="Image 3">
-            <!-- Ajoutez autant d'images que nécessaire -->
-        </div>
-    </div>
 
-    <!-- Ajout de l'horloge mondiale et du compteur de visites -->
-    <div class="info-container">
-        <div id="world-clock" class="info-item"></div>
-        <div id="visit-counter" class="info-item"></div>
+    <header>
+        <h1>The Monad Gallery</h1>
+    </header>
+
+    <div class="gallery">
+        <img src="https://i.ibb.co/5rRfdwM/IMG-6038.jpg" alt="Artwork 1">
+        <img src="https://i.ibb.co/WfRphSS/IMG-6262.jpg" alt="Artwork 2">
+        <img src="https://i.ibb.co/jZ7MYDh/IMG-6256.jpg" alt="Artwork 3">
+        <!-- Ajoutez autant d'images que nécessaire -->
     </div>
 
     <!-- Footer avec le lien Twitter et le copyright -->
     <footer>
-        <div class="footer-content">
-            <p>&copy; The Monad Gallery, 2023</p>
-            <a href="https://twitter.com/VOTRE_COMPTE_TWITTER" target="_blank">Suivez-nous sur Twitter</a>
-        </div>
+        <p>&copy; The Monad Gallery, 2023</p>
+        <a href="https://twitter.com/Crash_113589311" target="_blank">Suivez-nous sur Twitter</a>
     </footer>
 
     <script src="script.js"></script>
