@@ -71,6 +71,23 @@
             width: 100%;
         }
     </style>
+
+    <!-- ... (autres balises head) ... -->
+    <script>
+        // Désactive le clic droit sur les images
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        // Désactive la touche contextuelle de l'application (souvent utilisée pour ouvrir le menu contextuel avec le clic droit)
+        document.addEventListener('keydown', function (e) {
+            if (e.keyCode == 93 || e.keyCode == 123) {
+                e.preventDefault();
+            }
+        });
+    </script>
+
+    
 </head>
 
 <body>
