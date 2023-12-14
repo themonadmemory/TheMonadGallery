@@ -64,11 +64,9 @@
             max-height: 80vh;
         }
 
-        #countdown,
         #time {
             font-size: 36px;
             margin-top: 20px;
-            display: none;
         }
 
         @media only screen and (max-width: 768px) {
@@ -100,17 +98,7 @@
             // Fonction pour afficher l'image
             function showImage() {
                 $('#gif-background, #enter-link, #twitter-link, #time').hide();
-                $('#countdown').show();
-                let count = 8;
-                const countdownInterval = setInterval(function () {
-                    $('#countdown').text(count);
-                    count--;
-                    if (count < 0) {
-                        clearInterval(countdownInterval);
-                        $('#countdown').hide();
-                        $('#image-container').show();
-                    }
-                }, 1000);
+                $('#image-container').show();
             }
 
             // Fonction pour masquer l'image
@@ -157,7 +145,6 @@
     <div class="gallery-container">
         <div id="time">TIME: [UTC Time]</div>
         <div id="enter-link">ENTER HERE</div>
-        <div id="countdown"></div>
         <div id="image-container">
             <img id="current-image" src="" alt="Current Image">
         </div>
