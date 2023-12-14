@@ -17,13 +17,13 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Pour masquer les barres de défilement */
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: black; /* Fond noir par défaut */
-            transition: background-color 0.5s ease-in-out; /* Transition du fond avec effet de fondu */
+            background-color: black;
+            transition: background-color 0.5s ease-in-out;
         }
 
         #gif-background {
@@ -32,20 +32,18 @@
             height: 100%;
             z-index: -1;
             object-fit: cover;
-            animation: glitch 3s infinite alternate; /* Animation glitch */
         }
 
         .gallery-container {
             text-align: center;
             position: relative;
             z-index: 1;
-            color: rgba(255, 255, 255, 0.5);
-            animation: glitch-text 2s infinite alternate; /* Animation glitch pour le texte */
+            color: rgba(255, 255, 255, 0.9);
         }
 
         #enter-link {
             font-size: 24px;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             border: 2px solid white;
             padding: 10px 20px;
@@ -73,48 +71,10 @@
         .carousel {
             /* Ajoutez le style que vous souhaitez pour le carrousel ici */
         }
-
-        @keyframes glitch {
-            0% {
-                transform: translate(0, 0);
-            }
-
-            25% {
-                transform: translate(2px, -2px);
-            }
-
-            50% {
-                transform: translate(-2px, 2px);
-            }
-
-            75% {
-                transform: translate(2px, 2px);
-            }
-
-            100% {
-                transform: translate(-2px, -2px);
-            }
-        }
-
-        @keyframes glitch-text {
-            0%, 25%, 50%, 75%, 100% {
-                transform: none;
-            }
-
-            10% {
-                transform: skew(0.5deg, 0.5deg);
-            }
-
-            20% {
-                transform: skew(-0.5deg, -0.5deg);
-            }
-        }
     </style>
 
     <script>
-        // Attendre que le document soit prêt
         $(document).ready(function () {
-            // Configurer Slick pour le carrousel
             $('.carousel').slick({
                 autoplay: false,
                 arrows: true,
@@ -128,27 +88,19 @@
             });
         });
 
-        // Fonction pour afficher les images après avoir cliqué sur le texte
         function showImages() {
-            // Masquer le GIF
             $('#gif-background').fadeOut();
-            // Afficher le carrousel
             $('#image-container').fadeIn();
         }
     </script>
 </head>
 
 <body>
-    <!-- Gif en arrière-plan -->
     <iframe id="gif-background" src="https://giphy.com/embed/1fkEiiEz2iJwvuR0Hy" frameborder="0"
         allowfullscreen></iframe>
 
-    <!-- Contenu principal -->
     <div class="gallery-container">
-        <!-- Texte dramatique pour accéder aux images -->
         <div id="enter-link" onclick="showImages()">ENTER HERE</div>
-
-        <!-- Carrousel d'images -->
         <div id="image-container" class="carousel">
             <a href="https://i.ibb.co/5rRfdwM/IMG-6038.jpg" data-lightbox="gallery" data-title="Image 1">
                 <img src="https://i.ibb.co/5rRfdwM/IMG-6038.jpg" alt="Image 1">
@@ -163,11 +115,8 @@
         </div>
     </div>
 
-    <!-- Pied de page -->
     <footer>
         &copy; The Monad Gallery, 2023 | <a href="https://twitter.com/Crash_113589311" target="_blank">Twitter/X</a>
-        <br>
-        International Time: <span id="international-time"></span>
     </footer>
 </body>
 
