@@ -43,21 +43,10 @@
             animation: glitch-text 2s infinite alternate; /* Animation glitch pour le texte */
         }
 
-        #enter-link {
+        #enter-text {
             font-size: 24px;
             color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            border: 2px solid white;
-            padding: 10px 20px;
-            transition: background-color 0.3s ease-in-out;
-            display: block;
-            margin: 0 auto;
-            pointer-events: auto; /* Activer les événements pointer pour le lien */
-        }
-
-        #enter-link:hover {
-            background-color: white;
-            color: black;
+            cursor: pointer;
         }
 
         .slick-prev,
@@ -140,14 +129,14 @@
             });
         });
 
-        // Fonction pour rediriger directement vers le carrousel
+        // Fonction pour afficher les images après avoir cliqué sur le texte
         function showImages() {
             // Rediriger vers le carrousel (index 0)
             $('.carousel').slick('slickGoTo', 0);
             // Afficher le carrousel
             $('.carousel').fadeIn();
-            // Supprimer le lien après avoir montré les images (si nécessaire)
-            document.getElementById('enter-link').style.display = 'none';
+            // Supprimer le texte après avoir montré les images (si nécessaire)
+            document.getElementById('enter-text').style.display = 'none';
         }
     </script>
 </head>
@@ -159,8 +148,8 @@
 
     <!-- Contenu principal -->
     <div class="gallery-container">
-        <!-- Lien dramatique pour accéder aux images -->
-        <a href="javascript:void(0);" id="enter-link" onclick="showImages()">ENTER HERE</a>
+        <!-- Texte dramatique pour accéder aux images -->
+        <p id="enter-text" onclick="showImages()">Click here to enter</p>
 
         <!-- Carrousel d'images -->
         <div class="carousel">
