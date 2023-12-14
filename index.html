@@ -18,6 +18,8 @@
             align-items: center;
             flex-direction: column;
             height: 100vh;
+            background-color: black;
+            transition: background-color 0.5s ease-in-out;
             color: rgba(255, 255, 255, 0.9);
         }
 
@@ -56,7 +58,6 @@
         #image-container {
             display: none;
             position: relative;
-            background-color: transparent; /* Fond transparent pour l'image */
         }
 
         #image-container::before {
@@ -84,26 +85,20 @@
             margin-bottom: 10px;
         }
 
-        #remember-message {
+        .moving-dot {
             position: absolute;
             font-size: 20px;
-            opacity: 0;
-            animation: fadeInOut 6s infinite alternate, moveAroundSlow 20s infinite linear, changeColor 6s infinite alternate;
+            opacity: 0.7;
+            animation: moveAroundSlow 15s infinite linear, changeColor 6s infinite alternate;
         }
 
-        .hidden {
-            display: none;
-        }
-
-        @keyframes fadeInOut {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
+        .dot1 { top: 15%; left: 20%; }
+        .dot2 { top: 60%; left: 70%; }
+        .dot3 { top: 40%; left: 40%; }
+        .dot4 { top: 80%; left: 10%; }
+        .dot5 { top: 25%; left: 80%; }
+        .dot6 { top: 70%; left: 30%; }
+        .dot7 { top: 10%; left: 60%; }
 
         @keyframes moveAroundSlow {
             0% {
@@ -231,6 +226,13 @@
             <img id="current-image" src="" alt="Current Image">
         </div>
         <a id="twitter-link" href="https://twitter.com/Crash_113589311" target="_blank">Twitter/X</a>
+        <div class="moving-dot dot1">.</div>
+        <div class="moving-dot dot2">.</div>
+        <div class="moving-dot dot3">.</div>
+        <div class="moving-dot dot4">.</div>
+        <div class="moving-dot dot5">.</div>
+        <div class="moving-dot dot6">.</div>
+        <div class="moving-dot dot7">.</div>
         <div id="remember-message">.</div>
     </div>
 
