@@ -1,249 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Monad Gallery</title>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>XRP Switch Button</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
             display: flex;
-            justify-content: center;
             align-items: center;
-            flex-direction: column;
+            justify-content: center;
             height: 100vh;
-            background-color: black;
-            transition: background-color 0.5s ease-in-out;
-            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            background: url('https://media.giphy.com/media/l2YWlt9g2HQBMAb0k/giphy.gif?cid=ecf05e47whal1skokl5nipg7gzxens4huymtpms64lnh59ci&ep=v1_gifs_search&rid=giphy.gif&ct=g') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
         }
 
-        #gif-background {
-            position: fixed;
-            width: 100%;
-            height: 100vh;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        .gallery-container {
+        #buttonContainer {
             text-align: center;
-            position: relative;
-            z-index: 1;
         }
 
-        #enter-link,
-        #twitter-link {
-            font-size: 24px;
-            text-decoration: none;
-            border: 2px solid white;
-            padding: 10px 20px;
-            transition: opacity 0.5s ease-in-out;
+        #stressButton {
+            width: 150px;
+            height: 150px;
+            font-size: 20px;
             cursor: pointer;
-            display: inline-block;
-            margin-bottom: 20px;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease-in-out;
         }
 
-        #enter-link:hover,
-        #twitter-link:hover {
-            background-color: white;
-            color: black;
+        #stressButton:hover {
+            transform: scale(1.1);
         }
 
-        #image-container {
-            display: none;
-            position: relative;
+        #instructions {
+            font-style: italic;
+            margin-top: 10px;
         }
 
-        #image-container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: inherit;
-            filter: blur(8px);
-            z-index: -1;
-        }
-
-        #current-image {
-            max-width: 100%;
-            max-height: 80vh;
-            display: block;
-            margin: auto;
-        }
-
-        #time {
-            font-size: 16px;
-            margin-top: auto;
+        #symbol {
+            font-size: 30px;
             margin-bottom: 10px;
         }
-
-        .moving-dot {
-            position: absolute;
-            font-size: 20px;
-            opacity: 0.7;
-            animation: moveAroundSlow 15s infinite linear, changeColor 6s infinite alternate;
-        }
-
-        .dot1 { top: 15%; left: 20%; }
-        .dot2 { top: 60%; left: 70%; }
-        .dot3 { top: 40%; left: 40%; }
-        .dot4 { top: 80%; left: 10%; }
-        .dot5 { top: 25%; left: 80%; }
-        .dot6 { top: 70%; left: 30%; }
-        .dot7 { top: 10%; left: 60%; }
-
-        @keyframes moveAroundSlow {
-            0% {
-                top: 10%;
-                left: 10%;
-            }
-
-            25% {
-                top: 10%;
-                left: 90%;
-            }
-
-            50% {
-                top: 90%;
-                left: 90%;
-            }
-
-            75% {
-                top: 90%;
-                left: 10%;
-            }
-
-            100% {
-                top: 10%;
-                left: 10%;
-            }
-        }
-
-        @keyframes changeColor {
-            from {
-                color: rgba(255, 255, 255, 0.9);
-            }
-
-            to {
-                color: rgba(255, 255, 255, 0.1);
-            }
-        }
-
-        @media only screen and (max-width: 768px) {
-            #gif-background {
-                height: 100vh;
-                object-fit: cover;
-                width: 100vw;
-            }
-        }
     </style>
-
-    <script>
-        $(document).ready(function () {
-            // Fonction pour changer l'image source de manière aléatoire
-            function changeRandomImageSource() {
-                const images = [
-                    'https://i.ibb.co/5rRfdwM/IMG-6038.jpg',
-                    'https://i.ibb.co/WfRphSS/IMG-6262.jpg',
-                    'https://i.ibb.co/jZ7MYDh/IMG-6256.jpg'
-                    // Ajoutez d'autres liens d'images ici
-                ];
-
-                const randomIndex = Math.floor(Math.random() * images.length);
-                const randomImageSrc = images[randomIndex];
-
-                $('#current-image').attr('src', randomImageSrc);
-            }
-
-            // Fonction pour afficher l'image
-            function showImage() {
-                $('#enter-link, #twitter-link, #time').hide();
-                $('#image-container').show();
-            }
-
-            // Fonction pour masquer l'image
-            function hideImage() {
-                $('#image-container').hide();
-                $('#enter-link, #twitter-link, #time').show();
-            }
-
-            // Fonction pour mettre à jour le temps international
-            function updateInternationalTime() {
-                const randomYear = Math.floor(Math.random() * (2023 - 2000 + 1)) + 2000; // Entre 2000 et 2023
-                const randomMonth = Math.floor(Math.random() * 12) + 1; // Entre 1 et 12
-                const randomDay = Math.floor(Math.random() * 28) + 1; // Entre 1 et 28 (ignorant les années bissextiles pour simplifier)
-                const randomHour = Math.floor(Math.random() * 24); // Entre 0 et 23
-                const randomMinute = Math.floor(Math.random() * 60); // Entre 0 et 59
-                const randomSecond = Math.floor(Math.random() * 60); // Entre 0 et 59
-
-                const randomDate = new Date(randomYear, randomMonth - 1, randomDay, randomHour, randomMinute, randomSecond);
-                const options = {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit',
-                    timeZone: 'UTC'
-                };
-                const formattedTime = randomDate.toLocaleDateString('en-US', options);
-                $('#time').text(formattedTime);
-            }
-
-            // Mettre à jour le temps au chargement initial de la page
-            updateInternationalTime();
-
-            // Au clic sur ENTER HERE, changer l'image de manière aléatoire et afficher
-            $('#enter-link').click(function () {
-                changeRandomImageSource();
-                showImage();
-
-                // Ajout d'une classe pour cacher le GIF pendant la visualisation de l'image
-                $('#gif-background').addClass('hidden');
-
-                setTimeout(function () {
-                    hideImage();
-
-                    // Suppression de la classe pour réafficher le GIF après la visualisation de l'image
-                    $('#gif-background').removeClass('hidden');
-                }, 8000); // Disparition de l'image après 8 secondes
-            });
-        });
-    </script>
 </head>
-
 <body>
-    <iframe id="gif-background" src="https://giphy.com/embed/JxGOOJiKAfv68" frameborder="0" allowfullscreen></iframe>
-
-    <div class="gallery-container">
-        <div id="time"></div>
-        <div id="enter-link">ENTER HERE</div>
-        <div id="image-container">
-            <img id="current-image" src="" alt="Current Image">
-        </div>
-        <a id="twitter-link" href="https://twitter.com/Crash_113589311" target="_blank">Twitter/X</a>
-        <div class="moving-dot dot1">.</div>
-        <div class="moving-dot dot2">.</div>
-        <div class="moving-dot dot3">.</div>
-        <div class="moving-dot dot4">.</div>
-        <div class="moving-dot dot5">.</div>
-        <div class="moving-dot dot6">.</div>
-        <div class="moving-dot dot7">.</div>
-        <div id="remember-message">.</div>
+    <div id="buttonContainer">
+        <h1>XRP Switch Button</h1>
+        <div id="symbol">🔄</div>
+        <button id="stressButton" onclick="incrementScore()">Switch </button>
+        <p id="instructions"> Your XRP Switch level is indicated by the score.</p>
+        <p>Score: <span id="scoreValue">0</span></p>
     </div>
 
-    <footer>
-        &copy; The Monad Gallery, 2023
-    </footer>
-</body>
+    <script>
+        // JavaScript comments for clarity
+        let score = localStorage.getItem('score') || 0; // Retrieve the score from localStorage or default to 0
 
+        // Function to increment the score
+        function incrementScore() {
+            score++;
+            localStorage.setItem('score', score); // Save the updated score to localStorage
+            document.getElementById('scoreValue').innerText = score;
+        }
+
+        // Display the initial score
+        document.getElementById('scoreValue').innerText = score;
+    </script>
+</body>
 </html>
