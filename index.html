@@ -1,76 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XRP Switch Button</title>
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background: url('https://media.giphy.com/media/l2YWlt9g2HQBMAb0k/giphy.gif?cid=ecf05e47whal1skokl5nipg7gzxens4huymtpms64lnh59ci&ep=v1_gifs_search&rid=giphy.gif&ct=g') no-repeat center center fixed;
-            background-size: cover;
-            font-family: 'Roboto', sans-serif;
-            color: #fff;
-        }
-
-        #buttonContainer {
-            text-align: center;
-        }
-
-        #stressButton {
-            width: 150px;
-            height: 150px;
-            font-size: 20px;
-            cursor: pointer;
-            background-color: #e74c3c;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s ease-in-out;
-        }
-
-        #stressButton:hover {
-            transform: scale(1.1);
-        }
-
-        #instructions {
-            font-style: italic;
-            margin-top: 10px;
-        }
-
-        #symbol {
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Monad Gallery</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/lightbox.min.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div id="buttonContainer">
-        <h1>XRP Switch Button</h1>
-        <div id="symbol">🔄</div>
-        <button id="stressButton" onclick="incrementScore()">Switch </button>
-        <p id="instructions"> Your XRP Switch level is indicated by the score.</p>
-        <p>Score: <span id="scoreValue">0</span></p>
+  <header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">The Monad Gallery</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#gallery">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Gallery -->
+    <section id="gallery" class="py-5">
+      <div class="container">
+        <div class="row">
+          <!-- Glitch effect -->
+          <div class="col-md-4 col-sm-6 mb-4">
+            <a href="images/art1.jpg" data-lightbox="gallery">
+              <img src="images/art1.jpg" class="img-fluid glitch-effect" alt="Artwork 1">
+            </a>
+          </div>
+          <!-- End of Glitch effect -->
+          <!-- Add more artworks here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <h2>About the Artist</h2>
+            <p>Insert your bio here.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark text-white py-3">
+    <div class="container text-center">
+      <p>&copy; 2023 The Monad Gallery. All rights reserved.</p>
     </div>
+  </footer>
 
-    <script>
-        // JavaScript comments for clarity
-        let score = localStorage.getItem('score') || 0; // Retrieve the score from localStorage or default to 0
-
-        // Function to increment the score
-        function incrementScore() {
-            score++;
-            localStorage.setItem('score', score); // Save the updated score to localStorage
-            document.getElementById('scoreValue').innerText = score;
-        }
-
-        // Display the initial score
-        document.getElementById('scoreValue').innerText = score;
-    </script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/lightbox.min.js"></script>
+  <script src="js/glitch.js"></script>
 </body>
 </html>
